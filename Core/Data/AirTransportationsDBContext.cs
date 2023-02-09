@@ -8,7 +8,10 @@ namespace Core.Data;
 public class AirTransportationsDbContext : DbContext
 {
     public AirTransportationsDbContext(DbContextOptions<AirTransportationsDbContext> options) 
-        : base(options) { }
+        : base(options) 
+        { 
+            Database.Migrate();
+        }
     public DbSet<Client> Clients { get; set; }
     public DbSet<Airport> Airports { get; set; }
     public DbSet<Aircraft> Aircraft { get; set; }
